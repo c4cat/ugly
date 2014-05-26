@@ -1,18 +1,21 @@
 module.exports=function(grunt){
+
     require('time-grunt')(grunt);//Grunt处理任务进度条提示
 
     grunt.initConfig({
         //默认文件目录在这里
         paths:{
             assets:'./assets',//输出的最终文件assets里面
-            scss:'./css/sass',//推荐使用Sass
-            css:'./css', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
+            scss:'./css/sass/',//推荐使用Sass
+            css:'./css/', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
             js:'./js', //js文件相关目录
             img:'./img' //图片相关
         },
         buildType:'Build',
+
         pkg: grunt.file.readJSON('package.json'),
-        archive_name: grunt.option('name') || 'StaticPage项目名称',//此处可根据自己的需求修改
+
+        archive_name: grunt.option('name') || 'ugly',//此处可根据自己的需求修改
 
         //清理掉开发时才需要的文件
         clean: {
@@ -70,20 +73,17 @@ module.exports=function(grunt){
                 ]
             }
         },
-
-        //Sass 预处理
-        sass:{
-            admin:{
-                options:{
-                    sourcemap:true,
-                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        sass: {
+            dist: {
+                files: {
+                    '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
                 },
-                files:{
-                    '<%= paths.css %>/style.css':'<%= paths.scss %>/style.scss',
+                options: {
+                    sourcemap: 'true',
+                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 }
             }
         },
-
         //压缩 css
         cssmin:{
             options:{
@@ -111,6 +111,15 @@ module.exports=function(grunt){
                 }
             }
         },
+        // connect
+        // connect:{
+        //     server:{
+        //         options:{
+        //             port:5177,
+        //             base:'www-root'
+        //         }
+        //     }
+        // },
 
 
         //监听变化 默认grunt watch 监测所有开发文件变化
@@ -127,7 +136,7 @@ module.exports=function(grunt){
             //css
             sass:{
                 files:'<%= paths.scss %>/**/*.scss',
-                tasks:['sass:admin','cssmin']
+                tasks:['sass','cssmin']
             },
             css:{
                 files:'<%= paths.css %>/**/*.css',
@@ -161,10 +170,10 @@ module.exports=function(grunt){
 
     });
 
-  //输出进度日志
-  grunt.event.on('watch', function(action, filepath, target) {
-    grunt.log.writeln(target + ': ' + '文件: '+filepath + ' 变动状态: ' + action);
-  });
+    //输出进度日志
+    grunt.event.on('watch', function(action, filepath, target) {
+      grunt.log.writeln(target + ': ' + '*file*: '+filepath + '*staus*: ' + action);
+    });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
@@ -174,12 +183,20 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images']);
-    grunt.registerTask('sass', ['sass:admin','cssmin']);
-    //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
+    grunt.registerTask('wocao', ['sass','cssmin']);
+    // grunt.registerTask('live', ['connect:server']);
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
-    //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
+
     grunt.registerTask('publish', ['ftp-deploy']);
+
+    var connect = require('connect');
+
+    grunt.registerTask('live', 'Start a custom static web server.', function() {
+        grunt.log.writeln('Starting static web server in "www-root" on port 9001.');
+        connect(connect.static('/')).listen(9001);
+    });
 
 };

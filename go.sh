@@ -1,9 +1,7 @@
 #! bin/bash
-#自动进行项目初始操作的自动化脚本，可重复执行
-#Author:@foru17
-#url: http://luolei.org
-#定义项目变量
-#自定义远程GIT
+#Author:@MRC
+#Email: i#cornelia.in 
+#Git ugly
 function gitchange(){
     #首先删除已有的GIT remote branch
     git remote rm origin
@@ -63,8 +61,8 @@ foldername=${PWD##*/}
 if [  -a package.json ];
 then
     #cd .. && read -p "请给你的文件夹重命名:" rename && mv StaticPage $rename && cd $rename && sh go.sh
-    echo "欢迎使用\"StaticPage\"静态页面自动化工具"
-    echo "该项目文档在Github https://github.com/foru17/StaticPage "
+    echo "欢迎使用\"ugly\""
+    echo "Github:https://github.com/c4cat/ugly"
     echo
     diyproject
 else

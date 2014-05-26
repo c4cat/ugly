@@ -1,14 +1,13 @@
 /**
- * StaticPage 自动
- * url: http://this.is26.com
- * blog: http://luolei.org
+ * 
+ * email: http://i#cornelia.in
+ * blog: http://cornelia.in
  */
 
-@import "reset";//首先载入reset样式:建议根据自己的项目需求自定义
+@import "reset";
 @import "mixins";
 @import "base";
 
-/* 针对不同分辨率的适配可以根据需求自定义 */
 
 @media only screen and (min-width: 481px) {
 
