@@ -1,26 +1,25 @@
 module.exports=function(grunt){
 
-    require('time-grunt')(grunt);//Grunt处理任务进度条提示
-
+    require('time-grunt')(grunt);
+    
     grunt.initConfig({
-        //默认文件目录在这里
         paths:{
-            assets:'./assets',//输出的最终文件assets里面
-            scss:'./css/sass/',//推荐使用Sass
-            css:'./css/', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
-            js:'./js', //js文件相关目录
-            img:'./img' //图片相关
+            assets:'./assets',
+            scss:'./css/sass/',
+            css:'./css/', 
+            js:'./js',
+            jade:'./jade',
+            img:'./img'
         },
         buildType:'Build',
 
         pkg: grunt.file.readJSON('package.json'),
-
-        archive_name: grunt.option('name') || 'ugly',//此处可根据自己的需求修改
-
-        //清理掉开发时才需要的文件
+        //ur name
+        archive_name: grunt.option('name') || 'ugly',
+        
         clean: {
-            pre: ['dist/', 'build/'],//删除掉先前的开发文件
-            post: ['<%= archive_name %>*.zip'] //先删除先前生成的压缩包
+            pre: ['dist/', 'build/'],//del before build 
+            post: ['<%= archive_name %>*.zip'] //del zip
         },
 
         uglify:{
@@ -34,7 +33,6 @@ module.exports=function(grunt){
             }
         },
 
-        //压缩最终Build文件夹
         compress:{
             main:{
                 options:{
@@ -76,7 +74,9 @@ module.exports=function(grunt){
         sass: {
             dist: {
                 files: {
-                    '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
+                    // '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
+                    '<%= paths.assets %>/css/min.style.css': '<%= paths.scss %>style.scss'
+
                 },
                 options: {
                     sourcemap: 'true',
@@ -84,7 +84,6 @@ module.exports=function(grunt){
                 }
             }
         },
-        //压缩 css
         cssmin:{
             options:{
                   keepSpecialComments: 0
@@ -97,32 +96,48 @@ module.exports=function(grunt){
                  }
               }
         },
-
-        // 格式化和清理html文件
         htmlmin: {
             dist: {
                 options: {
                 removeComments: true,
-                //collapseWhitespace: true //压缩html:根据情况开启与否
+                //collapseWhitespace: true //mini html:true or false
             },
 
             files: {
-                'build/index.html': 'build/index.html',//清除html中的注释
+                'build/index.html': 'build/index.html',//del html //
                 }
             }
         },
         // connect
-        // connect:{
-        //     server:{
-        //         options:{
-        //             port:5177,
-        //             base:'www-root'
-        //         }
-        //     }
-        // },
-
-
-        //监听变化 默认grunt watch 监测所有开发文件变化
+        connect:{
+            server:{
+                options:{
+                    port:5177,
+                    base:'html/', //use "html"
+                    hostname:'*' //default,localhost
+                }
+            }
+        },
+        //jade temp
+        jade: {
+          compile: {
+            options: {
+              data: true
+            },
+            // files: {
+            //     "<%= paths.jade %>": "<%= paths.jade %>/*.jade"
+            // }
+            files: [{
+              expand: true,
+              cwd: 'jade/',
+              // src: [ '<%= paths.jade %>/*.jade' ],
+              src: [ '**/*.jade' ],
+              // dest: '<%= paths.jade %>/',
+              dest:'html/', //output 
+              ext: '.html'
+            }]
+          }
+        },
         watch:{
             options:{
                 //开启 livereload
@@ -136,7 +151,8 @@ module.exports=function(grunt){
             //css
             sass:{
                 files:'<%= paths.scss %>/**/*.scss',
-                tasks:['sass','cssmin']
+                // tasks:['sass','cssmin']
+                tasks:['sass']
             },
             css:{
                 files:'<%= paths.css %>/**/*.css',
@@ -146,6 +162,10 @@ module.exports=function(grunt){
                  files:'<%= paths.js %>/**/*.js',
                  tasks:['uglify']
             },
+            jade: {
+                files: '<%= paths.jade %>/**/*.jade',
+                tasks: [ 'jade' ]
+              },
             //若不使用Sass，可通过grunt watch:base 只监测style.css和js文件
             base:{
                 files:['<%= paths.css %>/**/*.css','<%= paths.js %>/**/*.js','img/**'],
@@ -154,7 +174,7 @@ module.exports=function(grunt){
 
         },
 
-        //发布到FTP服务器 : 请注意密码安全，ftp的帐号密码保存在主目录 .ftppass 文件
+        //ftp
         'ftp-deploy': {
           build: {
             auth: {
@@ -170,7 +190,7 @@ module.exports=function(grunt){
 
     });
 
-    //输出进度日志
+    //output log
     grunt.event.on('watch', function(action, filepath, target) {
       grunt.log.writeln(target + ': ' + '*file*: '+filepath + '*staus*: ' + action);
     });
@@ -184,19 +204,17 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-jade');
 
-    grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images']);
+    grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images','jade']);
     grunt.registerTask('wocao', ['sass','cssmin']);
     // grunt.registerTask('live', ['connect:server']);
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
 
     grunt.registerTask('publish', ['ftp-deploy']);
 
-    var connect = require('connect');
+    grunt.registerTask('j8', ['jade']);
 
-    grunt.registerTask('live', 'Start a custom static web server.', function() {
-        grunt.log.writeln('Starting static web server in "www-root" on port 9001.');
-        connect(connect.static('/')).listen(9001);
-    });
+    grunt.registerTask('live', 'Start a custom static web server.',['connect','watch']);
 
 };
