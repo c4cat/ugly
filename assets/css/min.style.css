@@ -1,1 +1,153 @@
-@charset "GBK";body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}body,button,input,select,textarea{font:12px/1.5 arial,sans-serif,'宋体';color:#1c1c1c}h1,h2,h3,h4,h5,h6{font-size:100%}html{_background-image:url(about:blank);_background-attachment:fixed}em,i{font-style:normal}ul,ol{list-style:none}a{text-decoration:none;color:#1C1C1C;outline:0;_blr:expression(this.onFocus=this.blur())}a:hover{color:#ddffde;text-decoration:underline}fieldset,img{border:0}button,input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}h1{color:red;font-size:99px;font-family:arial}h1 a{color:#157517;font-size:12px}@media only screen and (min-width:481px){p a{color:#fff}}
+/*! ugly 2014-05-28 */
+
+@charset "UTF-8";
+/**
+ * 
+ * email: http://i#cornelia.in
+ * blog: http://cornelia.in
+ */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0; }
+
+body, button, input, select, textarea {
+  font: 12px/1.5 arial,sans-serif,'宋体';
+  color: #1c1c1c; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+html {
+  _background-image: url(about:blank);
+  _background-attachment: fixed; }
+
+em, i {
+  font-style: normal; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #1C1C1C;
+  outline: 0;
+  _blr: expression(this.onFocus=this.blur()); }
+
+a:hover {
+  text-decoration: underline; }
+
+fieldset, img {
+  border: 0; }
+
+button, input, select, textarea {
+  font-size: 100%; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.n {
+  display: none !important; }
+
+.ma {
+  position: relative;
+  margin: 0 auto; }
+
+.clr {
+  clear: both; }
+
+header {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 1000px;
+  height: 569px;
+  background: url(../images/index03_01.jpg) center center; }
+
+div.topbar {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto; }
+
+div.logo {
+  width: 517px;
+  height: 50px;
+  float: left;
+  padding-left: 30px; }
+  div.logo a {
+    width: 100%;
+    height: 100%;
+    display: block; }
+
+div.function-panel {
+  width: 300px;
+  float: right; }
+  div.function-panel ul {
+    margin-top: 3px; }
+    div.function-panel ul li {
+      float: left;
+      margin: 0 10px; }
+      div.function-panel ul li a {
+        color: #000; }
+        div.function-panel ul li a:hover {
+          color: #333; }
+
+ul.nav {
+  width: 1000px;
+  top: 475px;
+  left: 30px;
+  position: relative;
+  margin: 0 auto; }
+  ul.nav li {
+    float: left;
+    width: 110px;
+    background: url(../images/index03_03.jpg) no-repeat top right;
+    text-align: center; }
+    ul.nav li a {
+      font-size: 14px;
+      text-align: center; }
+      ul.nav li a:hover {
+        text-shadow: 1px 1px 5px #ccc; }
+
+ul.nav > li:hover div {
+  display: block; }
+
+ul.nav > li > div {
+  display: none; }
+
+ul.nav > li > div > ul {
+  position: relative;
+  width: 117px;
+  height: auto; }
+  ul.nav > li > div > ul li {
+    float: none;
+    width: 90px;
+    margin: 0 auto;
+    padding: 5px 0;
+    background: none;
+    border-bottom: 1px dotted #aaa; }
+    ul.nav > li > div > ul li:last-child {
+      border: none !important; }
+
+li:last-child {
+  border: none !important; }
+
+div.nav2-bg-h {
+  width: 117px;
+  height: 16px;
+  background: url(../images/nav_03.png) no-repeat; }
+
+div.nav2-bg-m {
+  width: 117px;
+  background: url(../images/nav_06.png) repeat;
+  padding-bottom: 10px; }
+
+div.nav2-bg-f {
+  width: 117px;
+  height: 14px;
+  background: url(../images/nav_08.png) no-repeat; }
+
+@media only screen and (min-width: 481px) {
+  p a {
+    color: #fff; } }
+
+/*# sourceMappingURL=min.style.css.map */

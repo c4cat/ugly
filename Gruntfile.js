@@ -113,7 +113,8 @@ module.exports=function(grunt){
             server:{
                 options:{
                     port:5177,
-                    base:'html/', //use "html"
+                    //base:'html/', //use "html"
+                    base:'./',
                     hostname:'*' //default,localhost
                 }
             }
@@ -145,7 +146,8 @@ module.exports=function(grunt){
               // dest: 'demo.html'
               files: {
                 'html/demo.html': ['model/header.html', 'model/demo.html', 'model/footer.html'],
-                'html/test.html': ['model/header.html', 'model/test.html', 'model/footer.html']
+                'html/test.html': ['model/header.html', 'model/test.html', 'model/footer.html'],
+                'html/index.html': ['model/header.html', 'model/index.html', 'model/footer.html']
               },
             }
         },
@@ -163,8 +165,8 @@ module.exports=function(grunt){
             //css
             sass:{
                 files:'<%= paths.scss %>/**/*.scss',
-                // tasks:['sass','cssmin']
-                tasks:['sass']
+                tasks:['sass','cssmin']
+                // tasks:['sass']
             },
             css:{
                 files:'<%= paths.css %>/**/*.css',

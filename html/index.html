@@ -77,7 +77,47 @@
 </header>
 
 <!-- end header -->
-<p>test123</p>
+
+<div class="widgets">
+        <div class="news-widget">
+            <h3 id="companyText" ng-class="{current: newsWidget == 0}" ng-mouseover="newsWidget=0;" ng-init="newsWidget=0" class="ng-binding current">公司新闻</h3>
+            <h3 id="fieldText" ng-class="{current: newsWidget == 1}" ng-mouseover="newsWidget=1" class="ng-binding">行业新闻</h3>
+            <div class="company-widget" ng-show="newsWidget==0">
+                <ul>
+                    <!-- ngRepeat: c in companyNews | limitTo:4 --><li data-ng-repeat="c in companyNews | limitTo:4" class="ng-scope"><a ng-href="#zh/news/1/0" class="ng-binding" href="#zh/news/1/0">德嘉游艇新版网站上线</a></li><!-- end ngRepeat: c in companyNews | limitTo:4 -->
+                </ul>
+            </div>
+            <div class="field-widget ng-hide" ng-show="newsWidget==1">
+                <ul>
+                    <!-- ngRepeat: f in fieldNews | limitTo:4 --><li data-ng-repeat="f in fieldNews | limitTo:4" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li><!-- end ngRepeat: f in fieldNews | limitTo:4 -->
+                </ul>
+            </div>
+        </div>
+        <div class="product-widget">
+            <h3 id="productText" class="current ng-binding">产品中心</h3>
+            <div class="products-widget">
+                <div id="solidpic">
+                    <img ng-mousedown="pauseSeriesImage()" ng-src="img/products/series_4.jpg" src="img/products/series_4.jpg">
+                </div>
+                <div class="solidtxt">
+                    <a ng-href="#zh/products/4" href="#zh/products/4"><p class="solidtitle ng-binding" ng-bind="series[fIndex]['title']">索菲亚系列</p>
+                    <p class="soliddescr ng-binding" ng-bind="series[fIndex]['introduce']">奢华舒适、实用功能和高度适应性完美融合，带来全新的商务、娱乐活动概念。</p></a>
+                    <ul>
+                        <!-- ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding current">1</a>
+                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">2</a>
+                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">3</a>
+                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">4</a>
+                        </li><!-- end ngRepeat: ser in series -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="http://yacht.dejiayouting.com/" target="_blank" class="club-widget"><img src="img/club-widget.jpg"></a>
+    </div>
 <footer>
     <p>Copyright Dejia Inc 2014</p>
 	<ul>
