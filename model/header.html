@@ -1,7 +1,45 @@
-<html>
+
+<!DOCTYPE html>
+<html data-ng-app="DeJia">
 <head>
-	<meta charset="UTF-8">
-	<title>DEMO</title>
+    <meta charset="utf-8">
+    <title ng-bind="$root.title + '哈尔滨德嘉游艇有限公司'"></title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico" />
+    <link href="../assets/css/min.style.css" rel="stylesheet"/>
+<!-- mrc   <script src="libs.js"></script>
+    <script src="app.js"></script>
+    <script src="templates-app.js"></script>
+-->
 </head>
-<body>
-	
+<body data-ng-controller="BodyCtrl">
+<header>
+    <div class="topbar">
+        <div class="logo"><a ng-href="{{menu.mainMenu[0]['link']}}"><img ng-src="{{logoImageUrl}}"/></a></div>
+
+        <div class="panel">
+            <div class="function-panel">
+
+                <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">{{menu.panelMenu[0]['name']}}</a>
+                <a ng-href="{{menu.panelLink[1]}}">{{menu.panelMenu[1]['name']}}</a>
+                <a ng-click="changeLang(language)">{{menu.panelMenu[2]['name']}}</a>
+
+            </div>
+            <!-- mrc
+            <div class="search-panel">
+                <form name="search" ng-submit="submit()">
+                    <input type="text" name="query" ng-model="query" required/>
+                    <button type="submit">Go</button>
+                </form>
+            </div> -->
+        </div>
+    </div>
+    <ul class="nav">
+        <li data-ng-repeat="m in menu.mainMenu"><a ng-href="{{m.link}}">{{m.name}}</a>
+            <ul>
+                <li data-ng-repeat="s in menu.subMenu[$index]"><a ng-href="{{menu.subLink[$parent.$index][$index]}}">{{s}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</header>
+
+<!-- end header -->

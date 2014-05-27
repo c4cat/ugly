@@ -6,6 +6,16 @@
 <body>
 	
 <p>test123</p>
-
+<footer>
+    <a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a>
+    <a ng-href="{{menu.bottomLink[2]}}" ng-mouseenter="imgHover = 1" ng-mouseleave="imgHover = 0" ng-init="imgHover = 0">{{menu.bottomMenu[2]['name']}}</a>
+    <a ng-href="{{menu.bottomLink[1]}}">{{menu.bottomMenu[1]['name']}}</a>
+    <img id="wechatImg" ng-show="imgHover == 1" data-ng-src="img/wechat.png" />
+    <p>Copyright Dejia Inc 2014</p>
+    <audio controls="controls" autoplay="autoplay">
+        <source src="data/music.mp3" type="audio/mpeg" />
+        {{menu.otherText["22"]}}
+    </audio>
+</footer>
 </body>
 </html>
