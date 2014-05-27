@@ -9,6 +9,7 @@ module.exports=function(grunt){
             css:'./css/', 
             js:'./js',
             jade:'./jade',
+            model:'./model',
             img:'./img'
         },
         buildType:'Build',
@@ -76,7 +77,6 @@ module.exports=function(grunt){
                 files: {
                     // '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
                     '<%= paths.assets %>/css/min.style.css': '<%= paths.scss %>style.scss'
-
                 },
                 options: {
                     sourcemap: 'true',
@@ -138,6 +138,18 @@ module.exports=function(grunt){
             }]
           }
         },
+        //combine html file
+        concat:{
+            dist: {
+              // src: ['html/header.html', 'html/demo.html', 'html/footer.html'],
+              // dest: 'demo.html'
+              files: {
+                'html/demo.html': ['model/header.html', 'model/demo.html', 'model/footer.html'],
+                'html/test.html': ['model/header.html', 'model/test.html', 'model/footer.html']
+              },
+            }
+        },
+
         watch:{
             options:{
                 //开启 livereload
@@ -162,10 +174,14 @@ module.exports=function(grunt){
                  files:'<%= paths.js %>/**/*.js',
                  tasks:['uglify']
             },
-            jade: {
-                files: '<%= paths.jade %>/**/*.jade',
-                tasks: [ 'jade' ]
-              },
+            concat:{
+                 files:'<%= paths.model %>/**/*.html',
+                 tasks:['concat']
+            },
+            // jade: {
+            //     files: '<%= paths.jade %>/**/*.jade',
+            //     tasks: [ 'jade' ]
+            //   },
             //若不使用Sass，可通过grunt watch:base 只监测style.css和js文件
             base:{
                 files:['<%= paths.css %>/**/*.css','<%= paths.js %>/**/*.js','img/**'],
@@ -205,6 +221,7 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images','jade']);
     grunt.registerTask('wocao', ['sass','cssmin']);
