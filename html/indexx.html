@@ -100,3 +100,63 @@
 </header>
 
 <!-- end header -->
+<div id="content">
+<div class="widgets">
+        <div class="news-widget">
+            <div class="news-widget-title"></div>
+            <div class="news-widget-content">
+                <ul>
+                    <li><a href="#">三亚南边海超级游艇服务基地即将投入使用…</a></li>
+                    <li><a href="#">国家级的高新游艇技术企业认证</a></li>
+                    <li><a href="#">率先获得中国船级社认定的船舶和海事</a></li>
+                    <li><a href="#">三亚南边海超级游艇服务基地即将投入</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-widget">
+            <h3 id="productText" class="current ng-binding"></h3>
+            <div class="products-widget">
+                
+                <div class="solidtxt">
+                    <h4><a ng-href="#zh/products/4" href="#zh/products/4">索菲亚系列</a></h4>
+                    <p class="soliddescr ng-binding" ng-bind="series[fIndex]['introduce']">奢华舒适、实用功能和高度适应性完美融合，带来全新的商务、娱乐活动概念。</p>
+                    <ul>
+                        <li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding current"><img src="../assets/images/index03_1_10.jpg" alt=""></a>
+                        </li><!-- end ngRepeat: ser in series -->
+                        <li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding"><img src="../assets/images/index03_1_12.jpg" alt=""></a>
+                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
+                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding"><img src="../assets/images/index03_1_14.jpg" alt=""></a>
+                        </li><!-- end ngRepeat: ser in series -->
+                    </ul>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div class="club">
+            <h3 id="clubText" class="current ng-binding"></h3>
+            <a href="#"><img src="../assets/images/index03_1_06.jpg" alt=""></a>
+        </div>
+    </div>
+    </div>
+<footer>
+	<div class="footer-in">
+    <p>COPYRIGHT DEJIA INC 2014</p>
+	<ul>
+		<li><a ng-href="{{menu.bottomLink[0]}}">RSS订阅</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微信关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微博关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">隐私政策</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">网站地图</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">联系我们</a></li>
+    </ul>
+    </div>
+</footer>
+</body>
+</html>

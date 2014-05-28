@@ -1,1 +1,119 @@
-<h1>hello,demo1234567!</h1>
+<!DOCTYPE html>
+<html data-ng-app="DeJia">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="$root.title + '哈尔滨德嘉游艇有限公司'"></title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico" />
+    <link href="../assets/css/min.style.css" rel="stylesheet"/>
+<!-- mrc   <script src="libs.js"></script>
+    <script src="app.js"></script>
+    <script src="templates-app.js"></script>
+-->
+</head>
+<body data-ng-controller="BodyCtrl">
+<header>
+    <div class="topbar">
+        <div class="logo"><a ng-href="{{menu.mainMenu[0]['link']}}" href="#"></a></div>
+        <div class="panel">
+            <div class="function-panel">
+                <ul>
+                    <li><a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">收藏本站</a></li>
+                    <li><a ng-href="{{menu.panelLink[1]}}">设为首页</a></li>
+                    <li><a ng-click="changeLang(language)">ENGLISH</a></li>
+                    <li><a ng-href="{{menu.panelLink[1]}}">网站地图</a></li>
+                </ul>
+
+            </div>
+            <!-- mrc
+            <div class="search-panel">
+                <form name="search" ng-submit="submit()">
+                    <input type="text" name="query" ng-model="query" required/>
+                    <button type="submit">Go</button>
+                </form>
+            </div> -->
+        </div>
+    </div>
+    <div class="clr"></div>
+    <ul class="nav">
+        <!-- ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/" class="ng-binding" href="#zh/">首页</a>
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="" class="ng-binding">关于徳嘉</a>
+            <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/1" class="ng-binding" href="#zh/static/1">企业介绍</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/2" class="ng-binding" href="#zh/static/2">企业实力</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/3" class="ng-binding" href="#zh/static/3">企业理念</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+                <div class="clr"></div>
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="" class="ng-binding">产品销售</a>
+            <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/4" class="ng-binding" href="#zh/static/4">销售策略</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/5" class="ng-binding" href="#zh/static/5">购买条件</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/6" class="ng-binding" href="#zh/static/6">手续办理流程</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/7" class="ng-binding" href="#zh/static/7">配件及游艇用品</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/static/13" class="ng-binding" href="#zh/static/13">游艇系列</a>
+        <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/products/1" class="ng-binding" href="#zh/products/1">太阳岛</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/products/2" class="ng-binding" href="#zh/products/2">女真公主</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/products/3" class="ng-binding" href="#zh/products/3">乌苏里</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/products/4" class="ng-binding" href="#zh/products/4">索菲亚</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="" class="ng-binding">服务与支持</a>
+        <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/8" class="ng-binding" href="#zh/static/8">服务承诺</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/9" class="ng-binding" href="#zh/static/9">客户培训</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/10" class="ng-binding" href="#zh/static/10">维护保养</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/11" class="ng-binding" href="#zh/static/11">银行按揭</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/static/12" class="ng-binding" href="#zh/static/12">船务保险</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="" class="ng-binding">德嘉游艇会</a>
+        <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="http://yacht.dejiayouting.com/#/1/zh" class="ng-binding" href="http://yacht.dejiayouting.com/#/1/zh">游艇会介绍</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="http://yacht.dejiayouting.com/#/2/zh" class="ng-binding" href="http://yacht.dejiayouting.com/#/2/zh">游艇文化旅游</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="http://yacht.dejiayouting.com/#/3/zh" class="ng-binding" href="http://yacht.dejiayouting.com/#/3/zh">会员尊享</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="http://yacht.dejiayouting.com/#/4/zh" class="ng-binding" href="http://yacht.dejiayouting.com/#/4/zh">管理培训</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="http://yacht.dejiayouting.com/#/5/zh" class="ng-binding" href="http://yacht.dejiayouting.com/#/5/zh">特色项目</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/news/0" class="ng-binding" href="#zh/news/0">新闻动态</a>
+        <div class='nav2-bg-h'></div>
+            <div class="nav2-bg-m">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/news/1" class="ng-binding" href="#zh/news/1">企业新闻</a></li><!-- end ngRepeat: s in menu.subMenu[$index] --><li data-ng-repeat="s in menu.subMenu[$index]" class="ng-scope"><a ng-href="#zh/news/2" class="ng-binding" href="#zh/news/2">行业资讯</a></li><!-- end ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+            </div>
+            <div class='nav2-bg-f'></div>
+        </li><!-- end ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/static/0" class="ng-binding" href="#zh/static/0">联系我们</a>
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[$index] -->
+            </ul>
+        </li><!-- end ngRepeat: m in menu.mainMenu -->
+    </ul>
+</header>
+
+<!-- end header -->
+<footer>
+	<div class="footer-in">
+    <p>COPYRIGHT DEJIA INC 2014</p>
+	<ul>
+		<li><a ng-href="{{menu.bottomLink[0]}}">RSS订阅</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微信关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微博关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">隐私政策</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">网站地图</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">联系我们</a></li>
+    </ul>
+    </div>
+</footer>
+</body>
+</html>

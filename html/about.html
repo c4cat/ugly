@@ -9,6 +9,9 @@
     <script src="app.js"></script>
     <script src="templates-app.js"></script>
 -->
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
 <body data-ng-controller="BodyCtrl">
 <header>
@@ -97,16 +100,50 @@
 </header>
 
 <!-- end header -->
-<p>test123</p>
+<div id="content">
+<div class="in ytxl">
+	<div class="left-panel">
+		<div class="panel-nav">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope live"><a ng-href="#zh/static/1" class="ng-binding" href="#zh/static/1">企业介绍</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope"><a ng-href="#zh/static/2" class="ng-binding" href="#zh/static/2">企业实力</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope"><a ng-href="#zh/static/3" class="ng-binding" href="#zh/static/3">企业理念</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+            </ul>
+        </div>
+	</div>
+	<div class="right-panel">
+		<h3 class='about'>关于德嘉 / <span>About Us</span></h3>
+		<div class="clr"></div>	
+		<div class="static-container">
+            <div class="static-title ng-binding"><h1>企业介绍</h1></div>
+            <div class="static-content ng-binding" ng-bind-html="content"><p>哈尔滨德嘉游艇科技开发有限公司是黑龙江省首家船舶制造企业，位于呼兰区松花江支流呼兰河畔。工厂占地10万平方米，主要生产车间面积7000平方米，公司现有80余人，在制造质量管控、产品科技创新和工厂科学管理方面拥有一流的团队。公司以科技创新、追求品质、精细严谨的理念，为顾客生产能够满足游艇生活体验的产品，力争打造全国一流的船舶制造企业。<br></p></div>
+        </div>
+    </div>    
+</div>
+</div>
+<div class="clr"></div>
+
 <footer>
-    <p>Copyright Dejia Inc 2014</p>
+	<div class="footer-in">
+    <p>COPYRIGHT DEJIA INC 2014</p>
 	<ul>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">RSS订阅</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微信关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微博关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">隐私政策</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">网站地图</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">联系我们</a></li>
     </ul>
+    </div>
 </footer>
 </body>
 </html>

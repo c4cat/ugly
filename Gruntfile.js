@@ -75,8 +75,9 @@ module.exports=function(grunt){
         sass: {
             dist: {
                 files: {
-                    // '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
-                    '<%= paths.assets %>/css/min.style.css': '<%= paths.scss %>style.scss'
+                    '<%= paths.css %>style.css': '<%= paths.scss %>style.scss'
+                    // '<%= paths.assets %>/css/min.style.css': '<%= paths.scss %>style.scss'
+                    //att
                 },
                 options: {
                     sourcemap: 'true',
@@ -145,9 +146,12 @@ module.exports=function(grunt){
               // src: ['html/header.html', 'html/demo.html', 'html/footer.html'],
               // dest: 'demo.html'
               files: {
-                'html/demo.html': ['model/header.html', 'model/demo.html', 'model/footer.html'],
-                'html/test.html': ['model/header.html', 'model/test.html', 'model/footer.html'],
-                'html/index.html': ['model/header.html', 'model/index.html', 'model/footer.html']
+                'html/ytxl.html': ['model/header.html', 'model/ytxl.html', 'model/footer.html'],
+                // 'html/test.html': ['model/header.html', 'model/test.html', 'model/footer.html'],
+                'html/indexx.html': ['model/header.html', 'model/index.html', 'model/footer.html'],
+                'html/ddtx.html': ['model/header.html', 'model/ddtx.html', 'model/footer.html'],
+                'html/about.html': ['model/header.html', 'model/about.html', 'model/footer.html'],
+                'html/news.html': ['model/header.html', 'model/news.html', 'model/footer.html'],
               },
             }
         },

@@ -1,0 +1,37 @@
+<div id="content">
+<div class="in ytxl">
+	<div class="left-panel">
+		<div class="panel-nav">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope live"><a ng-href="#zh/static/1" class="ng-binding" href="#zh/static/1">企业新闻</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope"><a ng-href="#zh/static/2" class="ng-binding" href="#zh/static/2">行业资讯</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+            </ul>
+        </div>
+	</div>
+	<div class="right-panel">
+		<h3 class='news'>新闻动态 / <span>News</span></h3>
+		<div class="clr"></div>	
+		<div data-ui-view="" class="ng-scope">
+		<div class="panel-content ng-scope news">
+   			<ul>
+        		<!-- ngRepeat: l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize -->
+        		<li data-ng-repeat="l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li>
+        		<li data-ng-repeat="l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li>
+        		<!-- end ngRepeat: l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize -->
+    		</ul>
+		</div>
+		</div>
+
+        <div id="list-button" class="ng-binding">
+        	<button data-ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" disabled="disabled">首页</button>
+        	<button data-ng-disabled="currentPage >= news.length/pageSize - 1" ng-click="currentPage=currentPage-1" disabled="disabled">上一页</button>
+        	<button data-ng-disabled="currentPage >= news.length/pageSize - 1" ng-click="currentPage=currentPage+1" disabled="disabled">下一页</button>
+        	<button>尾页</button>
+    	</div>
+    </div>    
+</div>
+</div>
+<div class="clr"></div>

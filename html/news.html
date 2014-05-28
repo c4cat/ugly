@@ -9,6 +9,9 @@
     <script src="app.js"></script>
     <script src="templates-app.js"></script>
 -->
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
 <body data-ng-controller="BodyCtrl">
 <header>
@@ -97,56 +100,61 @@
 </header>
 
 <!-- end header -->
+<div id="content">
+<div class="in ytxl">
+	<div class="left-panel">
+		<div class="panel-nav">
+            <ul>
+                <!-- ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope live"><a ng-href="#zh/static/1" class="ng-binding" href="#zh/static/1">企业新闻</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+                <li data-ng-repeat="s in menu.subMenu[page.index-1]" class="ng-scope"><a ng-href="#zh/static/2" class="ng-binding" href="#zh/static/2">行业资讯</a></li>
+                <!-- end ngRepeat: s in menu.subMenu[page.index-1] -->
+            </ul>
+        </div>
+	</div>
+	<div class="right-panel">
+		<h3 class='news'>新闻动态 / <span>News</span></h3>
+		<div class="clr"></div>	
+		<div data-ui-view="" class="ng-scope">
+		<div class="panel-content ng-scope news">
+   			<ul>
+        		<!-- ngRepeat: l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize -->
+        		<li data-ng-repeat="l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li>
+        		<li data-ng-repeat="l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li>
+        		<!-- end ngRepeat: l in news | orderBy: '-time' | startFrom:currentPage*pageSize | limitTo:pageSize -->
+    		</ul>
+		</div>
+		</div>
 
-<div class="widgets">
-        <div class="news-widget">
-            <h3 id="companyText" ng-class="{current: newsWidget == 0}" ng-mouseover="newsWidget=0;" ng-init="newsWidget=0" class="ng-binding current">公司新闻</h3>
-            <h3 id="fieldText" ng-class="{current: newsWidget == 1}" ng-mouseover="newsWidget=1" class="ng-binding">行业新闻</h3>
-            <div class="company-widget" ng-show="newsWidget==0">
-                <ul>
-                    <!-- ngRepeat: c in companyNews | limitTo:4 --><li data-ng-repeat="c in companyNews | limitTo:4" class="ng-scope"><a ng-href="#zh/news/1/0" class="ng-binding" href="#zh/news/1/0">德嘉游艇新版网站上线</a></li><!-- end ngRepeat: c in companyNews | limitTo:4 -->
-                </ul>
-            </div>
-            <div class="field-widget ng-hide" ng-show="newsWidget==1">
-                <ul>
-                    <!-- ngRepeat: f in fieldNews | limitTo:4 --><li data-ng-repeat="f in fieldNews | limitTo:4" class="ng-scope"><a ng-href="#zh/news/2/0" class="ng-binding" href="#zh/news/2/0">三亚南边海超级游艇服务基地即将投入使用</a></li><!-- end ngRepeat: f in fieldNews | limitTo:4 -->
-                </ul>
-            </div>
-        </div>
-        <div class="product-widget">
-            <h3 id="productText" class="current ng-binding">产品中心</h3>
-            <div class="products-widget">
-                <div id="solidpic">
-                    <img ng-mousedown="pauseSeriesImage()" ng-src="img/products/series_4.jpg" src="img/products/series_4.jpg">
-                </div>
-                <div class="solidtxt">
-                    <a ng-href="#zh/products/4" href="#zh/products/4"><p class="solidtitle ng-binding" ng-bind="series[fIndex]['title']">索菲亚系列</p>
-                    <p class="soliddescr ng-binding" ng-bind="series[fIndex]['introduce']">奢华舒适、实用功能和高度适应性完美融合，带来全新的商务、娱乐活动概念。</p></a>
-                    <ul>
-                        <!-- ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
-                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding current">1</a>
-                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
-                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">2</a>
-                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
-                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">3</a>
-                        </li><!-- end ngRepeat: ser in series --><li data-ng-repeat="ser in series" class="ng-scope">
-                            <a ng-class="{current: fIndex == $index}" ng-mouseover="changeSeries($index)" class="ng-binding">4</a>
-                        </li><!-- end ngRepeat: ser in series -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <a href="http://yacht.dejiayouting.com/" target="_blank" class="club-widget"><img src="img/club-widget.jpg"></a>
-    </div>
+        <div id="list-button" class="ng-binding">
+        	<button data-ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" disabled="disabled">首页</button>
+        	<button data-ng-disabled="currentPage >= news.length/pageSize - 1" ng-click="currentPage=currentPage-1" disabled="disabled">上一页</button>
+        	<button data-ng-disabled="currentPage >= news.length/pageSize - 1" ng-click="currentPage=currentPage+1" disabled="disabled">下一页</button>
+        	<button>尾页</button>
+    	</div>
+    </div>    
+</div>
+</div>
+<div class="clr"></div>
+
 <footer>
-    <p>Copyright Dejia Inc 2014</p>
+	<div class="footer-in">
+    <p>COPYRIGHT DEJIA INC 2014</p>
 	<ul>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
-		<li><a ng-href="{{menu.bottomLink[0]}}">{{menu.bottomMenu[0]['name']}}</a></li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">RSS订阅</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微信关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">微博关注</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">隐私政策</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">网站地图</a></li>
+		<li>|</li>
+		<li><a ng-href="{{menu.bottomLink[0]}}">联系我们</a></li>
     </ul>
+    </div>
 </footer>
 </body>
 </html>
