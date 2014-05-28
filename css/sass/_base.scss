@@ -60,6 +60,9 @@ ul.nav{
 		background: url(../images/index03_03.jpg) no-repeat top right;
 		// margin: 0 20px;
 		text-align: center;
+		&:last-child{
+			background: none;
+		}
 		a{
 			font-size: 14px;
 			text-align: center;
@@ -101,12 +104,16 @@ ul.nav>li>div>ul{
 		background: url(../images/nav_03.png) no-repeat;
 	}
 	div.nav2-bg-m{
+		position: relative;
+		top:-4px;
 		width: 117px;
 		// height: 16px;
 		background: url(../images/nav_06.png) repeat;
 		// padding-bottom: 10px;
 	}
 	div.nav2-bg-f{
+		position: relative;
+		top:-4px;
 		width: 117px;
 		height: 14px;
 		background: url(../images/nav_08.png) no-repeat;
@@ -123,19 +130,31 @@ footer{
 	height: 164px;
 	background: url(../images/index03_14.jpg) no-repeat center center;
 }
+.ie8 .footer-in,.ie7 .footer-in{
+	// top:-30px!important;
+}
+.ie8 .eng,.ie7 .eng{
+	position: relative;
+	top:-2px;
+}
 .footer-in{
 	position: relative;
 	width: 1000px;
 	margin: 0 auto;
-	top:100px;
+	top:80px;
 	top:70px\0;
+	z-index: 999;
 	p{
+		position: absolute;
 		float: left;
+		left: 0;
 		color: #ddd;
 		width: 517px;
 	}
 	ul{
+		position: absolute;
 		float: right;
+		right: 0;
 		li{
 			float: left;
 			margin: 0 2px;
@@ -154,6 +173,11 @@ footer{
 	min-width: 1000px;
 	z-index: 999;
 	top:25px;
+	min-height: 450px;
+	height:450px\0;
+}
+#content .in{
+	padding-bottom:100px;
 }
 .widgets{
 	position: relative;
@@ -270,11 +294,14 @@ footer{
 	font-family: 'microsoft yahei';
 	.product-name{
 		h3{
+			width: 800px;
+			margin: 0 auto;
 			text-align: center;
-			font-size: 26px;
+			font-size: 24px;
 			color: #122368;
 			border-bottom: 1px solid #7f8589;
 			padding-bottom: 10px;
+
 		}
 	}
 	ul#product-tabs{
@@ -311,9 +338,16 @@ footer{
 }
 #tabs-gallery{
 	margin: 30px;
+
+}
+.ie8 #tabs-gallery{
+	position: relative;
+	top:30px;	
 }
 #product-gallery{
 	p{
+		width: auto;
+		max-width: 900px;
 		text-align: center;
 	}
 	img{
@@ -324,13 +358,13 @@ footer{
 	}
 }
 .left-panel{
-	width: 222px;
+	width: 200px;
 	float: left;
-
+	padding-left: 120px;
 
 }
 .right-panel{
-	width: 555px;
+	width: 500px;
 	float: left;
 	// margin-left: 30px;
 }
@@ -392,10 +426,10 @@ footer{
 		ul{
 			margin-top: 30px;
 			li{
-				width: 517px;
+				width: 500px;
 				height: 90px;
 				.yt-li{
-					width: 517px;
+					width: 500px;
 					img{
 						float: left;
 						width: 120px;
@@ -403,7 +437,7 @@ footer{
 						border:1px solid #d1d1d1;
 					}
 					.yt-li-in{
-						width: 380px;
+						width: 355px;
 						float: right;
 						h5{
 							font-size: 14px;
@@ -422,36 +456,57 @@ footer{
 }
 
 .static-container{
-	width: 555px;
-	height: 344px;
-	min-height: 344px;
+	width: 500px;
+	// height: 344px;
+	// min-height: 344px;
+	// margin-bottom: 100px;
 	.static-title{
-		width: 555px;
-		h1{
-			// width: 517px;
-			margin-top: 10px;
-			font-size: 24px;
-			color: #123368;
-			font-family: 'sinsum';
-			line-height: 3;
-			text-align: center;
-		}
+		width: 500px;
+		// h1{
+		// 	width: 517px;
+		// 	margin-top: 10px;
+		// 	font-size: 24px;
+		// 	color: #123368;
+		// 	font-family: 'sinsum';
+		// 	// line-height: 3;
+		// 	// padding: 10px 0;
+		// 	text-align: center;
+		// }
 		p{
 			text-indent: 20px;
-			line-height: 1.7;
+			// line-height: 1.7;
 			font-size: 12px;
 			color: #123368;
 		}
 	}
+ }
+
+// .static-title h1{
+// 	width: 517px;
+//  	margin-top: 10px;
+//  	font-size: 24px;
+//  	color: #123368;
+//  	font-family: 'sinsum';
+//  	line-height: 3;
+//  	text-align: center;
+// }
+
+.static-container h1{
+	color: #123368;
+	text-align: center;
+	font-size: 24px;
+	// line-height: 3;
+	padding: 10px 0;
 }
+
 
 .panel-content.news{
 	ul{
-		width: 555px;
+		width: 500px;
 		margin-top: 10px;
 		li{
 			height: 20px;
-			width: 555px;
+			width: 485px;
 			background: url(../images/index03_1_03.jpg) no-repeat center left;
 			padding: 5px 0;
 			border-bottom: 1px dotted #aaa;
@@ -461,7 +516,9 @@ footer{
 		}
 	}
 }
-
+.h100{
+	height: 100px;
+}
 div#list-button{
 	position: relative;
 	width: 200px;
@@ -469,6 +526,7 @@ div#list-button{
 	button{
 		border: none;
 		margin: 0 5px;
+		background: #f3f4f6;
 		&:hover{
 			text-decoration: underline;
 		}

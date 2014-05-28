@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html data-ng-app="DeJia">
+<!--[if IE 7]>
+<html class="ie ie7" lang="zh-CN">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="zh-CN">
+<![endif]-->
+<!--[if IE 9]>
+<html class="ie ie9" lang="zh-CN">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8) | !(IE 9)  ]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title ng-bind="$root.title + '哈尔滨德嘉游艇有限公司'"></title>
@@ -22,7 +33,7 @@
                 <ul>
                     <li><a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">收藏本站</a></li>
                     <li><a ng-href="{{menu.panelLink[1]}}">设为首页</a></li>
-                    <li><a ng-click="changeLang(language)">ENGLISH</a></li>
+                    <li class='eng'><a ng-click="changeLang(language)">ENGLISH</a></li>
                     <li><a ng-href="{{menu.panelLink[1]}}">网站地图</a></li>
                 </ul>
 
