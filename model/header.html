@@ -27,6 +27,7 @@
 <body data-ng-controller="BodyCtrl">
 <header>
     <div class="topbar">
+        <div class="topbar-in">
         <div class="logo"><a ng-href="{{menu.mainMenu[0]['link']}}" href="#"></a></div>
         <div class="panel">
             <div class="function-panel">
@@ -47,7 +48,9 @@
             </div> -->
         </div>
     </div>
+    </div>
     <div class="clr"></div>
+    <div class="div-ul">
     <ul class="nav">
         <!-- ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/" class="ng-binding" href="#zh/">首页</a>
             <ul>
@@ -108,6 +111,7 @@
             </ul>
         </li><!-- end ngRepeat: m in menu.mainMenu -->
     </ul>
+    </div>
 </header>
 
 <!-- end header -->

@@ -51,8 +51,10 @@ module.exports=function(grunt){
                 files:[
                     {expand: true, src: ['assets/css/**'], dest: 'build/'},
                     {expand: true, src: ['assets/images/**'], dest: 'build/'},
+                    {expand: true, src: ['html/**'], dest: 'build/'},
                     {expand: true, src: ['assets/js/**'], dest: 'build/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json','!node_modules/**','!go.sh','!.ftppass','!<%= archive_name %>*.zip'], dest: 'build/'},
+                    //copy what to build only /html/ and /assets/ is enough
+                    // {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json','!node_modules/**','!go.sh','!.ftppass','!<%= archive_name %>*.zip'], dest: 'build/'},
                 ]
             },
 
@@ -107,6 +109,14 @@ module.exports=function(grunt){
             files: {
                 'build/index.html': 'build/index.html',//del html //
                 }
+            }
+        },
+        //uncss
+        uncss: {
+          dist: {
+          files: {
+            'html/tidy.css': ['html/indexx.html']
+            }
             }
         },
         // connect
@@ -228,15 +238,16 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-uncss');
 
     grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images','jade']);
     grunt.registerTask('wocao', ['sass','cssmin']);
     // grunt.registerTask('live', ['connect:server']);
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
-
     grunt.registerTask('publish', ['ftp-deploy']);
 
     grunt.registerTask('j8', ['jade']);
+    grunt.registerTask('un', ['uncss']);
 
     grunt.registerTask('live', 'Start a custom static web server.',['connect','watch']);
 

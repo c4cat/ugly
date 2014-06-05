@@ -15,7 +15,9 @@
     <meta charset="utf-8">
     <title ng-bind="$root.title + '哈尔滨德嘉游艇有限公司'"></title>
     <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico" />
-    <link href="../assets/css/min.style.css" rel="stylesheet"/>
+    <link href="tidy.css" rel="stylesheet"/>
+    <!-- <link href="../assets/css/min.style.css" rel="stylesheet"/> -->
+
 <!-- mrc   <script src="libs.js"></script>
     <script src="app.js"></script>
     <script src="templates-app.js"></script>
@@ -27,6 +29,7 @@
 <body data-ng-controller="BodyCtrl">
 <header>
     <div class="topbar">
+        <div class="topbar-in">
         <div class="logo"><a ng-href="{{menu.mainMenu[0]['link']}}" href="#"></a></div>
         <div class="panel">
             <div class="function-panel">
@@ -47,7 +50,9 @@
             </div> -->
         </div>
     </div>
+    </div>
     <div class="clr"></div>
+    <div class="div-ul">
     <ul class="nav">
         <!-- ngRepeat: m in menu.mainMenu --><li data-ng-repeat="m in menu.mainMenu" class="ng-scope"><a ng-href="#zh/" class="ng-binding" href="#zh/">首页</a>
             <ul>
@@ -108,10 +113,11 @@
             </ul>
         </li><!-- end ngRepeat: m in menu.mainMenu -->
     </ul>
+    </div>
 </header>
 
 <!-- end header -->
-<div id="content">
+<div id="content" class="index">
 <div class="widgets">
         <div class="news-widget">
             <div class="news-widget-title"></div>
